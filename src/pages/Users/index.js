@@ -1,6 +1,5 @@
 import React from 'react';
-import UserCard from './components/UserCard';
-import './style.css';
+import styles from './style.module.less';
 
 const Users = () => {
     const users = [
@@ -11,10 +10,8 @@ const Users = () => {
 
     return (
         <div className="users-container">
-            <h2>用户列表</h2>
-            {users.map(user => (
-                <UserCard key={user.id} {...user} />
-            ))}
+            <h2 className={styles.bg}>用户列表</h2>
+
         </div>
     );
 };

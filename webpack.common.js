@@ -30,7 +30,23 @@ module.exports = {
                 test: /\.css$/,
                 exclude: /\.module\.css$/,
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.less$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]_[hash:base64:5]'
+                            }
+                        }
+                    },
+                    'less-loader'
+                ]
             }
+
         ],
     },
     resolve: {
